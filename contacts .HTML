@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Animated Sports App</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Floating Background Elements -->
+    <div class="floating" style="--tx: 100vw; --ty: 50vh;"></div>
+    <div class="floating" style="--tx: -50vw; --ty: 30vh;"></div>
+    <div class="floating" style="--tx: 80vw; --ty: -20vh;"></div>
+    <div class="floating" style="--tx: -30vw; --ty: 80vh;"></div>
+    <div class="floating" style="--tx: 120vw; --ty: 100vh;"></div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <button class="nav-btn active" onclick="switchPage('matches')">
+            <i class="fas fa-futbol"></i> Matches
+        </button>
+        <button class="nav-btn" onclick="switchPage('contacts')">
+            <i class="fas fa-address-book"></i> Contacts
+        </button>
+    </nav>
+
+    <!-- Matches Page -->
+    <div id="matchesPage" class="screen active">
+        <div class="header">
+            <h1>Matches</h1>
+            <p>Track results, players & venues</p>
+        </div>
+
+        <div class="card-3d">
+            <h2 class="section-title">
+                <i class="fas fa-trophy"></i>
+                Recent Matches
+            </h2>
+
+            <!-- Match 1 -->
+            <div class="match-item">
+                <div class="match-header">
+                    <div class="match-teams">
+                        <h3>Championship Finals</h3>
+                        <p>Team Alpha vs Team Beta</p>
+                        <div class="match-venue">🏟️ National Stadium, London</div>
+                    </div>
+                    <div class="match-score score-win">3 - 1</div>
+                </div>
+                <div class="match-players">
+                    <h4>Key Players:</h4>
+                    <div class="players-list">
+                        <span class="player-tag">Alex Johnson</span>
+                        <span class="player-tag">Marcus Chen</span>
+                        <span class="player-tag">Sarah Williams</span>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7754!2d-0.1278!3d51.5074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de71%3A0x52963a5addd52a0d!2sLondon!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Match 2 -->
+            <div class="match-item">
+                <div class="match-header">
+                    <div class="match-teams">
+                        <h3>Semi-finals</h3>
+                        <p>Team Gamma vs Team Delta</p>
+                        <div class="match-venue">🏟️ Metro Arena, Manchester</div>
+                    </div>
+                    <div class="match-score score-loss">0 - 2</div>
+                </div>
+                <div class="match-players">
+                    <h4>Key Players:</h4>
+                    <div class="players-list">
+                        <span class="player-tag">David Rodriguez</span>
+                        <span class="player-tag">Emma Taylor</span>
+                        <span class="player-tag">James Wilson</span>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7754!2d-2.2374!3d53.4808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487bb41df1b5a1c7%3A0x6c5f0a0b1e0b1e0b!2sManchester!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contacts Page -->
+    <div id="contactsPage" class="screen">
+        <div class="header">
+            <h1>Contact Us</h1>
+            <p>Reach out through your preferred platform</p>
+        </div>
+
+        <div class="card-3d">
+            <h2 class="section-title"><i class="fas fa-sms"></i> SMS Contact</h2>
+            <input type="text" id="smsInput" class="contact-input" placeholder="Enter your phone number">
+            <button onclick="submitSMS()" class="submit-btn">
+                <i class="fas fa-paper-plane"></i> Send SMS Request
+            </button>
+            <div id="smsStatus" class="status-message"></div>
+        </div>
+
+        <div class="card-3d">
+            <h2 class="section-title"><i class="fab fa-whatsapp"></i> WhatsApp</h2>
+            <input type="text" id="whatsappInput" class="contact-input" placeholder="Enter your WhatsApp number">
+            <button onclick="submitWhatsApp()" class="submit-btn">
+                <i class="fab fa-whatsapp"></i> Send WhatsApp Request
+            </button>
+            <div id="whatsappStatus" class="status-message"></div>
+        </div>
+
+        <div class="card-3d" onclick="window.open('https://instagram.com', '_blank')">
+            <h2 class="section-title"><i class="fab fa-instagram"></i> Instagram</h2>
+            <div class="contact-method">
+                <div class="contact-icon instagram-icon"><i class="fab fa-instagram"></i></div>
+                <div class="contact-info">
+                    <h3>Visit Our Instagram</h3>
+                    <p>@playerhub_official</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-3d" onclick="window.open('https://facebook.com', '_blank')">
+            <h2 class="section-title"><i class="fab fa-facebook"></i> Facebook</h2>
+            <div class="contact-method">
+                <div class="contact-icon facebook-icon"><i class="fab fa-facebook-f"></i></div>
+                <div class="contact-info">
+                    <h3>Visit Our Facebook</h3>
+                    <p>PlayerHub Official</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 PlayerHub • <a href="#">Privacy Policy</a> • <a href="#">Terms of Use</a></p>
+    </footer>
+
+    <script>
+        // Page switching
+        function switchPage(page) {
+            const matchesPage = document.getElementById('matchesPage');
+            const contactsPage = document.getElementById('contactsPage');
+            const matchesBtn = document.querySelectorAll('.nav-btn')[0];
+            const contactsBtn = document.querySelectorAll('.nav-btn')[1];
+            
+            if (page === 'matches') {
+                matchesPage.classList.add('active');
+                contactsPage.classList.remove('active');
+                matchesBtn.classList.add('active');
+                contactsBtn.classList.remove('active');
+            } else {
+                matchesPage.classList.remove('active');
+                contactsPage.classList.add('active');
+                matchesBtn.classList.remove('active');
+                contactsBtn.classList.add('active');
+            }
+        }
+
+        // Form submission with AJAX simulation
+        function submitSMS() {
+            const phoneNumber = document.getElementById('smsInput').value;
+            const statusDiv = document.getElementById('smsStatus');
+            if (!phoneNumber.trim()) {
+                showStatus(statusDiv, 'Please enter a phone number', 'error');
+                return;
+            }
+            simulateAJAX(() => {
+                showStatus(statusDiv, 'SMS contact request sent successfully!', 'success');
+                document.getElementById('smsInput').value = '';
+            });
+        }
+        
+        function submitWhatsApp() {
+            const phoneNumber = document.getElementById('whatsappInput').value;
+            const statusDiv = document.getElementById('whatsappStatus');
+            if (!phoneNumber.trim()) {
+                showStatus(statusDiv, 'Please enter a WhatsApp number', 'error');
+                return;
+            }
+            simulateAJAX(() => {
+                showStatus(statusDiv, 'WhatsApp contact request sent successfully!', 'success');
+                document.getElementById('whatsappInput').value = '';
+            });
+        }
+        
+        function simulateAJAX(callback) {
+            const buttons = document.querySelectorAll('.submit-btn');
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            });
+            setTimeout(() => {
+                callback();
+                buttons.forEach(btn => {
+                    btn.disabled = false;
+                    const isSMS = btn.closest('.card-3d').querySelector('.section-title i').className.includes('sms');
+                    btn.innerHTML = isSMS ? 
+                        '<i class="fas fa-paper-plane"></i> Send SMS Request' : 
+                        '<i class="fab fa-whatsapp"></i> Send WhatsApp Request';
+                });
+            }, 1500);
+        }
+        
+        function showStatus(element, message, type) {
+            element.textContent = message;
+            element.className = 'status-message';
+            element.classList.add(type === 'success' ? 'status-success' : 'status-error');
+            element.style.display = 'block';
+            setTimeout(() => { element.style.display = 'none'; }, 3000);
+        }
+    </script>
+</body>
+</html>
+
